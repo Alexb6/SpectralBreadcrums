@@ -1,0 +1,43 @@
+{
+  "zones": [
+    {"id": 1, "label": "Building 1", "childsId": [6, 9], "parentId": null, "scenariosId": null, "zoneLevel": 1 },
+    {"id": 2, "label": "Building 2", "childsId": [5, 7], "parentId": null, "scenariosId": null, "zoneLevel": 1 },
+    {"id": 3, "label": "Building 3", "childsId": [8, 11, 13], "parentId": null, "scenariosId": null, "zoneLevel": 1 },
+    {"id": 4, "label": "Building 4", "childsId": [10, 12, 14, 15], "parentId": null, "scenariosId": null, "zoneLevel": 1 },
+    
+    {"id": 5, "label": "Room 1", "childsId": [1, 4, 6, 9], "parentId": 2, "scenariosId": [9, 15], "zoneLevel": 2 },
+    {"id": 6, "label": "Room 2", "childsId": [2, 3], "parentId": 1, "scenariosId": [8], "zoneLevel": 2 },
+    {"id": 7, "label": "Room 3", "childsId": [5, 7, 8], "parentId": 2, "scenariosId": [4, 5], "zoneLevel": 2 },
+    {"id": 8, "label": "Room 4", "childsId": [10], "parentId": 3, "scenariosId": [6], "zoneLevel": 2 },
+    {"id": 9, "label": "Room 1", "childsId": [1, 4, 6, 9], "parentId": 1, "scenariosId": [], "zoneLevel": 2 },
+    {"id": 10, "label": "Room 2", "childsId": [2, 3], "parentId": 4, "scenariosId": [10, 12, 14], "zoneLevel": 2 },
+    {"id": 11, "label": "Room 3", "childsId": [5, 7, 8], "parentId": 3, "scenariosId": [2, 3, 11], "zoneLevel": 2 },
+    {"id": 12, "label": "Room 4", "childsId": [10], "parentId": 4, "scenariosId": [16], "zoneLevel": 2 },
+    {"id": 13, "label": "Room 1", "childsId": [1, 4, 6, 9], "parentId": 3, "scenariosId": [1, 7, 13, 18], "zoneLevel": 2 },
+    {"id": 14, "label": "Room 2", "childsId": [2, 3], "parentId": 4, "scenariosId": [20, 21], "zoneLevel": 2 },
+    {"id": 15, "label": "Room 3", "childsId": [5, 7, 8], "parentId": 4, "scenariosId": [17, 19], "zoneLevel": 2 }
+  ],
+  "scenarios": [
+    { "id": 1, "label": "Scenario 1", "stepsCount": 9, "popularity": 0.50 },
+    { "id": 2, "label": "Scenario 2", "stepsCount": 19, "popularity": 0.30 },
+    { "id": 3, "label": "Scenario 3", "stepsCount": 9, "popularity": 0.36 },
+    { "id": 4, "label": "Scenario 4", "stepsCount": 14, "popularity": 0.42 },
+    { "id": 5, "label": "Scenario 5", "stepsCount": 9, "popularity": 0.44 },
+    { "id": 6, "label": "Scenario 6", "stepsCount": 24, "popularity": 0.33 },
+    { "id": 7, "label": "Scenario 7", "stepsCount": 20, "popularity": 0.35 },
+    { "id": 8, "label": "Scenario 8", "stepsCount": 2, "popularity": 0.85 },
+    { "id": 9, "label": "Scenario 9", "stepsCount": 29, "popularity": 0.86 },
+    { "id": 10, "label": "Scenario 10", "stepsCount": 19, "popularity": 0.38 },
+    { "id": 11, "label": "Scenario 11", "stepsCount": 33, "popularity": 0.43 },
+    { "id": 12, "label": "Scenario 12", "stepsCount": 23, "popularity": 0.89 },
+    { "id": 13, "label": "Scenario 13", "stepsCount": 13, "popularity": 0.25 },
+    { "id": 14, "label": "Scenario 14", "stepsCount": 4, "popularity": 0.63 },
+    { "id": 15, "label": "Scenario 15", "stepsCount": 26, "popularity": 0.15 },
+    { "id": 16, "label": "Scenario 16", "stepsCount": 5, "popularity": 0.68 },
+    { "id": 17, "label": "Scenario 17", "stepsCount": 12, "popularity": 0.23 },
+    { "id": 18, "label": "Scenario 18", "stepsCount": 17, "popularity": 0.82 },
+    { "id": 19, "label": "Scenario 19", "stepsCount": 12, "popularity": 0.25 },
+    { "id": 20, "label": "Scenario 20", "stepsCount": 16, "popularity": 0.78 },
+    { "id": 21, "label": "Scenario 21", "stepsCount": 24, "popularity": 0.85 }
+  ]
+}
