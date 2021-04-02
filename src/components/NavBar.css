@@ -1,0 +1,13 @@
+.breadcrumbs {
+   background-color: rgb(238, 238, 238);
+   padding: 2px 5px 4px 2px;
+   border-radius: 0 4px 4px 0;
+}
+
+.breadcrumbs span {
+   color: rgb(175, 175, 175);
+}
+
+.breadcrumbs span:last-of-type {
+   color: rgb(223, 140, 140);
+}

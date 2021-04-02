@@ -1,15 +1,61 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Breadcrumb, Icon } from "semantic-ui-react";
 
+import './NavBar.css';
 
 // See semantic-ui-react document for further information on how Breadcrumb works
 // https://react.semantic-ui.com/collections/breadcrumb/
-const NavBar = ({ zones, scenarios, setFocus }) => {
-  React.useEffect(() => {
-    console.log({ zones, scenarios });
+const NavBar = ({ zones, scenarios, setFocus, initialFocus }) => {
+  const [focus, setInternFocus] = useState();
+  useEffect(() => {
+    // console.log({ zones, scenarios });
+    const data = { zone1: {}, zone2: {}, scenario: {} }
+    if (scenarios != null && zones != null) {
+      const { type, value } = initialFocus;
+      if (type === 'scenarios') {
+        data.scenario = scenarios.find(el => el.id === value);
+        data.zone2 = zones.filter(el => el.zoneLevel === 2).find(el => el.scenariosId.includes(data.scenario.id));
+        data.zone1 = zones.find(el => el.id === data.zone2.parentId);
+      }
+      if (type === 'zones') {
+        const zoneLevel = zones.find(el => el.id === value);
+        if (zoneLevel.zoneLevel === 2) {
+          data.zone2 = zones.find(el => el.id === value);
+          data.zone1 = zones.find(el => el.id === data.zone2.parentId);
+        } else {
+          data.zone1 = zones.find(el => el.id === value);
+        }
+      }
+      setInternFocus(data);
+      // setFocus(data);
+    }
   }, [zones, scenarios]);
 
-  return <div>my navbar</div>;
+  // Check if an object is empty
+  const objIsEmpty = (obj) => {
+    for (var x in obj) { return false; }
+    return true;
+  }
+
+  if (!focus) return <div> Breadcrumbs menu is loadding... </div>
+
+  return (
+    <div>
+      <Breadcrumb className='breadcrumbs'>
+        {focus.zone1 &&
+          <Breadcrumb.Section>
+            <span>{focus.zone1.label}</span>
+            {!objIsEmpty(focus.zone2) &&
+              <span><Breadcrumb.Divider icon='right chevron'/>{focus.zone2.label}</span>
+            }
+            {!objIsEmpty(focus.scenario) &&
+              <span><Breadcrumb.Divider icon='right chevron'/>{focus.scenario.label}</span>
+            }
+          </Breadcrumb.Section>
+        }
+      </Breadcrumb>
+    </div>
+  );
 };
 
 export default NavBar;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
 import View from "./components/View";
 import "./styles.css";
@@ -8,14 +8,13 @@ const apiConfig = {
   headers: new Headers()
 };
 
-const apiRootUrl =
-  "https://my-json-server.typicode.com/Utopiad/spectraltms-front-end-test";
+const apiRootUrl ="https://my-json-server.typicode.com/Utopiad/spectraltms-front-end-test";
 
 export default function App() {
   const [zones, setZones] = useState(null);
   const [scenarios, setScenarios] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
-  const [focus, setFocus] = useState({});
+  // const [focus, setFocus] = useState({});
 
   const getZones = async () => {
     await fetch(`${apiRootUrl}/zones`, apiConfig)
@@ -57,7 +56,11 @@ export default function App() {
         <NavBar
           zones={zones}
           scenarios={scenarios}
-          setFocus={(focus) => setFocus(focus)}
+          // setFocus={(focus) => setFocus(focus)}
+          initialFocus={{
+            type: 'zones',
+            value: 5
+          }}
         />
         <View focus={focus} />
       </main>
