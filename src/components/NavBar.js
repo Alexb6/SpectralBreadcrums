@@ -26,9 +26,9 @@ const NavBar = ({ zones, scenarios, setFocus, initialFocus }) => {
           data.zone1 = zones.find(el => el.id === value);
         }
       }
-      setInternFocus(data);
-      // setFocus(data);
-    }
+      setInternFocus(data);      
+      // setFocus(data);      
+    }  
   }, [zones, scenarios]);
 
   // Check if an object is empty
@@ -38,18 +38,17 @@ const NavBar = ({ zones, scenarios, setFocus, initialFocus }) => {
   }
 
   if (!focus) return <div> Breadcrumbs menu is loadding... </div>
-
-  return (
+  return (    
     <div>
       <Breadcrumb className='breadcrumbs'>
-        {focus.zone1 &&
+        { focus.zone1 &&
           <Breadcrumb.Section>
-            <span>{focus.zone1.label}</span>
-            {!objIsEmpty(focus.zone2) &&
-              <span><Breadcrumb.Divider icon='right chevron'/>{focus.zone2.label}</span>
-            }
-            {!objIsEmpty(focus.scenario) &&
-              <span><Breadcrumb.Divider icon='right chevron'/>{focus.scenario.label}</span>
+            {
+              Object.values(focus).map(focusPlace => {
+                if (!objIsEmpty(focusPlace)) return (
+                  <span key={focusPlace.id}>{focusPlace.label}<Breadcrumb.Divider icon='right chevron' /></span>
+                )
+              })
             }
           </Breadcrumb.Section>
         }

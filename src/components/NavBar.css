@@ -11,3 +11,7 @@
 .breadcrumbs span:last-of-type {
    color: rgb(223, 140, 140);
 }
+
+.breadcrumbs span:last-of-type i.icon.divider {
+   display: none;
+}
